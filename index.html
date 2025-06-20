@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YNW Global - Official Reseller</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ff88;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDEwIDAgTCAwIDAgMCAxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAzMzMzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=');
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Logos Section */
+        .logos-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #00ff88;
+        }
+
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .logo-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .logo-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #00ff88;
+        }
+
+        .logo-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Mod Menus Section */
+        .mod-menus {
+            padding: 80px 0;
+        }
+
+        .menus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card h3 {
+            color: #00ff88;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .features-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ccff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            color: #000;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .buy-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Videos Section */
+        .videos-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #00ff88;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .video-placeholder:hover {
+            background: linear-gradient(135deg, #2a2a3e, #26314e);
+            transform: scale(1.05);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .contact-item h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .contact-item a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #00ff88;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #00ff88;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #00ff88;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .logos-grid,
+            .menus-grid,
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-card,
+        .menu-card,
+        .video-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">YNW Global</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Official Reseller Hub</h1>
+                <p>Your trusted source for premium mod menus and gaming tools</p>
+                <a href="#products" class="cta-button">Explore Products</a>
+            </div>
+        </section>
+
+        <section class="logos-section">
+            <div class="container">
+                <h2 class="section-title">Official Partner Brands</h2>
+                <div class="logos-grid">
+                    <div class="logo-card">
+                        <div class="logo-placeholder">CHERAX</div>
+                        <h3>Cherax</h3>
+                        <p>Premium GTA V mod menu with advanced features, superior stability, and regular updates. Trusted by thousands of users worldwide.</p>
+                    </div>
+                    <div class="logo-card">
+                        <div class="logo-placeholder">LEXIS</div>
+                        <h3>Lexis</h3>
+                        <p>High-performance mod menu offering cutting-edge features, excellent protection, and seamless gameplay enhancement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="mod-menus">
+            <div class="container">
+                <h2 class="section-title">Premium Mod Menus</h2>
+                <div class="menus-grid">
+                    <div class="menu-card">
+                        <h3>Cherax Standard</h3>
+                        <ul class="features-list">
+                            <li>Advanced Recovery Options</li>
+                            <li>Comprehensive Protection</li>
+                            <li>Regular Updates</li>
+                            <li>24/7 Support</li>
+                            <li>Easy Installation</li>
+                            <li>✓ Lifetime Access</li>
+                        </ul>
+                        <div class="price">$29.99</div>
+                        <a href="#contact" class="buy-button">Purchase Now</a>
+                    </div>
+                    
+                    <div class="menu-card">
+                        <h3>Cherax Premium</h3>
+                        <ul class="features-list">
+                            <li>All Standard Features</li>
+                            <li>Advanced Trolling Options</li>
+                            <li>Vehicle Spawning</li>
+                            <li>Teleportation Features</li>
+                            <li>Priority Support</li>
+                            <li>✓ Lifetime Access</li>
+                        </ul>
+                        <div class="price">$49.99</div>
+                        <a href="#contact" class="buy-button">Purchase Now</a>
+                    </div>
+                    
+                    <div class="menu-card">
+                        <h3>Lexis Lifetime</h3>
+                        <ul class="features-list">
+                            <li>Cutting-Edge Protection</li>
+                            <li>Advanced ESP Features</li>
+                            <li>Customizable Interface</li>
+                            <li>Exclusive Features</li>
+                            <li>VIP Support Access</li>
+                            <li>✓ Lifetime Access</li>
+                        </ul>
+                        <div class="price">$69.99</div>
+                        <a href="#contact" class="buy-button">Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="videos" class="videos-section">
+            <div class="container">
+                <h2 class="section-title">Tutorial Videos</h2>
+                <div class="videos-grid">
+                    <div class="video-card">
+                        <div class="video-placeholder" onclick="openVideo('https://youtu.be/TC0gL8Dkor4?si=fLgKc3yuem6TYHy8')">▶</div>
+                        <div class="video-info">
+                            <h3>Cherax Mod Menu Overview</h3>
+                            <p>Complete overview of Cherax mod menu features and capabilities. Click to watch on YouTube.</p>
+                            <a href="https://youtu.be/TC0gL8Dkor4?si=fLgKc3yuem6TYHy8" target="_blank" style="color: #00ff88; text-decoration: none;">🔗 Watch on YouTube</a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-placeholder">▶</div>
+                        <div class="video-info">
+                            <h3>Lexis Features Overview</h3>
+                            <p>Comprehensive overview of all Lexis features and capabilities. Video coming soon!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p>Ready to purchase or need support? Contact us through any of these channels:</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Discord</h3>
+                        <p><a href="https://discord.gg/yTGkNxc7eU" target="_blank">Join our Discord server</a></p>
+                        <p>Get instant support and community access</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Email Support</h3>
+                        <p><a href="mailto:globalmenudev@proton.me">globalmenudev@proton.me</a></p>
+                        <p>Professional support and sales inquiries</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Purchase Info</h3>
+                        <p>Contact us via Discord or Email</p>
+                        <p>Fast response and secure transactions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 YNW Global - Official Reseller. All rights reserved.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Function to open video in new tab
+        function openVideo(url) {
+            window.open(url, '_blank');
+        }
+
+        // Observe all cards for animation
+        document.querySelectorAll('.logo-card, .menu-card, .video-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
